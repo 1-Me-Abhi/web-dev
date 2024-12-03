@@ -3,113 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home page </title>
-    <title>home page </title>
-    <title>home page </title>
+    <title>Home Page</title>
     <style>
         *{
             margin: 0;
             padding: 0;
         }
         body{
-            background-color: aqua;
+            background-color: white;
         }
         nav{
-            background-color: blueviolet;
-            text-align: end;
-            padding: 15px 10px;
-            position: sticky;
-            top: 0px;
-            
+            background-color:white;
+            display: flex;
+            align-items:center;
+            justify-content: space-around;
         }
-        li{
+        .menu{
             list-style: none;
-            display: inline;
-            margin: 5px 5px;
-            text-decoration: none;
-            
+            display: flex;
+            justify-content: end;
+            background-color: white;
+            gap: 20px;
         }
         a{
             text-decoration: none;
-            color: black;
+            color:black;
         }
         a:hover{
-            background-color: black;
-            color: blueviolet;
-            border-radius: 5px;
-            padding: 2px 8px;
+            background-color: white;
+            color: gray;
+
         }
-        .main{
-            background-color: black;
-            margin: 20px 30px;
+        li{
             display: flex;
-            justify-content:space-evenly;
             align-items: center;
-            border-radius: 22px;
-            padding: 30px 0px;
+            justify-content: space-between;
+            cursor: pointer;
         }
-        .box1{
-            background-color: orange;
-            border: solid slategrey;
-            border-radius: 22px;
-            width: 230px;
-            
-            height: 450px;
+        main{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            margin: 20px 50px;
+            justify-content: center;
         }
-        .box2{
-            background-color: pink;
-            border: solid slategray;
-            border-radius: 22px;
-            width: 230px;
-            height: 450px;
-            
-        }
-        img{
-           border-radius: 20px; 
-        }
-        .cap{
-            background-color: black;
-            color: whitesmoke;
+        .box{
+            width: 140px;
+            height:100px;
+            border: solid black 2px;
+            background-color:lightgray;
             text-align: center;
-            border-radius: 22px;
-            margin:50px 100px;
-            padding: 50px 90px;
+            margin: 10px 10px;
         }
-        .orange-box {
-            height: 32px;
-            width: 32px;
-            background: orange;
-            position: fixed;
-            bottom: 12px;
-            right: 23px;
-            border-radius: 60px;
-        }
-        </style>
+
+    </style>
 </head>
 <body>
+   <header>
     <nav>
-        <ol>
-            <li><a href="">Home</a></li>
-            <li><a href="">Trending</a></li>
-            <li><a href="">Category</a></li> 
-            <li><a href="">About</a></li>
-            <li><a href="">Contact</a></li>
-        </ol>
+        <div><img src="https://www.ultraedit.com/wp-content/uploads/2023/01/UE-Logo-1.webp" width="220" height="70" alt="UltraEdit" id="logo" data-height-percentage="58" data-actual-width="259" data-actual-height="83"></div> 
+        <div><ol class="menu">
+            <li><span><a href="">Products</a></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg></li>
+            <li><span><a href="">For business</a></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg></li>
+            <li><span><a href="">Resources</a></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg></li>
+            <li><span><a href="">Support</a></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg></li>
+            <li><span><a href="">Our company</a></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg></li>
+            </ol>
+       </div> 
     </nav>
-    <div class="main">
-        <div class="box1"><img width="230px" height="455px"  src="https://nick.blog/wp-content/uploads/2023/12/img_9846.png?w=768" alt=""></div>
-        <div class="box2"><img width="230px" height="455px" src="https://storage.googleapis.com/support-forums-api/attachment/thread-239722789-4108223529804095571.png" alt=""></div>
-    </div>
-    <div class="main">
-        <div class="box1"><img width="230px" height="455px"  src="https://nick.blog/wp-content/uploads/2023/12/img_9846.png?w=768" alt=""></div>
-        <div class="box2"><img width="230px" height="455px" src="https://storage.googleapis.com/support-forums-api/attachment/thread-239722789-4108223529804095571.png" alt=""></div>
-    </div>
-    <div class="cap"><h4>This is Web page. </h4>
-         <p>This is a project of learning Front end.<p>
-    </div>
-    <div class="orange-box">
-
-    </div>
-
+   </header>
+   <main>
+    <div class="box">BOX number1</div>
+    <div class="box">BOX number2</div>
+    <div class="box">BOX number3</div>
+    <div class="box">BOX number4</div>
+    <div class="box">BOX number5</div>
+    <div class="box">BOX number6</div>
+    <div class="box">BOX number7</div>
+    <div class="box">BOX number8</div>
+    <div class="box">BOX number9</div>
+    <div class="box">BOX number10</div>
+   </main>
+   <footer></footer>
 </body>
 </html>
