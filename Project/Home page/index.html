@@ -25,11 +25,11 @@
             background-color: white;
             gap: 20px;
         }
-        a{
+        .non{
             text-decoration: none;
             color:black;
         }
-        a:hover{
+        .non:hover{
             background-color: white;
             color: gray;
 
@@ -45,16 +45,43 @@
             grid-template-columns: auto auto auto;
             margin: 20px 50px;
             justify-content: center;
+            grid-gap: 20px 20px;
         }
         .box{
-            width: 140px;
-            height:100px;
-            border: solid black 2px;
-            background-color:lightgray;
+            width: 255px;
+            height: 150px;
+            border-radius: 8px;
+            box-shadow: 2px 5px 10px 1px;
+            background-color:whitesmoke;
             text-align: center;
             margin: 10px 10px;
+            display: grid;
+            grid-template-rows: auto;
+            justify-content: space-around;
+            align-items: center;
+            align-content: space-evenly;
         }
-
+        .box:hover{
+            background-color: whitesmoke;
+            color: whitesmoke;
+        }
+        p{
+            color: black;
+            padding: 15px;
+            font-weight: bold;    
+        }
+        .down{
+           text-decoration: none;
+           padding: 8px 8px;
+           background-color:rgb(105, 170, 105);
+           color: white;
+           font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+           border-radius: 8px;
+           
+        }
+        .down:hover{
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -62,19 +89,19 @@
     <nav>
         <div><img src="https://www.ultraedit.com/wp-content/uploads/2023/01/UE-Logo-1.webp" width="220" height="70" alt="UltraEdit" id="logo" data-height-percentage="58" data-actual-width="259" data-actual-height="83"></div> 
         <div><ol class="menu">
-            <li><span><a href="">Products</a></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+            <li><span><a class="non" href="">Products</a></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
                 <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg></li>
-            <li><span><a href="">For business</a></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+            <li><span><a class="non" href="">For business</a></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
                 <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg></li>
-            <li><span><a href="">Resources</a></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+            <li><span><a class="non" href="">Resources</a></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
                 <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg></li>
-            <li><span><a href="">Support</a></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+            <li><span><a class="non" href="">Support</a></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
                 <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg></li>
-            <li><span><a href="">Our company</a></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+            <li><span><a class="non" href="">Our company</a></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
                 <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg></li>
             </ol>
@@ -82,16 +109,26 @@
     </nav>
    </header>
    <main>
-    <div class="box">BOX number1</div>
-    <div class="box">BOX number2</div>
-    <div class="box">BOX number3</div>
-    <div class="box">BOX number4</div>
-    <div class="box">BOX number5</div>
-    <div class="box">BOX number6</div>
-    <div class="box">BOX number7</div>
-    <div class="box">BOX number8</div>
-    <div class="box">BOX number9</div>
-    <div class="box">BOX number10</div>
+    <div class="box"><p>English</p>
+        <a class="down" href="one.jpg">Download 64-bit</a></div>
+    <div class="box"><p>English</p>
+        <a class="down" href="one.jpg">Download 64-bit</a></div>
+    <div class="box"><p>English</p>
+        <a class="down" href="one.jpg">Download 64-bit</a></div>
+    <div class="box"><p>English</p>
+        <a class="down" href="one.jpg">Download 64-bit</a></div>
+    <div class="box"><p>English</p>
+        <a class="down" href="one.jpg">Download 64-bit</a></div>
+    <div class="box"><p>English</p>
+        <a class="down" href="one.jpg">Download 64-bit</a></div>
+    <div class="box"><p>English</p>
+        <a class="down" href="one.jpg">Download 64-bit</a></div>
+    <div class="box"><p>English</p>
+        <a class="down" href="one.jpg">Download 64-bit</a></div>
+    <div class="box"><p>English</p>
+        <a class="down" href="one.jpg">Download 64-bit</a></div>
+    <div class="box"><p>English</p>
+        <a class="down" href="one.jpg">Download 64-bit</a></div>
    </main>
    <footer></footer>
 </body>
