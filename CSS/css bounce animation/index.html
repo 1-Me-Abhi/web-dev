@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bounce Animation</title>
+    <style>
+        .box{
+            background-color: cadetblue;
+            width: 100vw;
+            height: 100vh;
+            position: relative;   
+        }
+        .boll
+        {
+            border-radius:20px;
+            width: 90px;
+            height: 90px;
+            position: absolute; 
+            bottom: 0;
+            left: 0; 
+            animation: name duration timing-function delay iteration-count direction fill-mode;
+            animation: animateX 3s linear infinite, animateY 1s ease-out infinite alternate;
+        }
+        @keyframes animateX {
+            from{
+                left: 0;
+            }
+            to{
+                left: 100%;
+            }
+        }
+
+        @keyframes animateY {
+           from{
+                bottom: 0;
+            }
+            to{
+                bottom: 100% ;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="boll"><img width="80px" height="80px" src="Boll.png" alt=""></div>
+    </div>
+</body>
+</html>
