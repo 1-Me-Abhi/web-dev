@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>LogIn</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
-        body{
+
+        body {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -19,14 +21,19 @@
             height: 80vh;
             background: url(ba.jpg) center right;
         }
-        .box{
-            background-color:transparent;
+
+        .box {
+            background-color: transparent;
             backdrop-filter: blur(3px);
             padding: 30px;
             border-radius: 10px;
             border: 2px solid rgb(89, 125, 125);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-        p{
+
+        .p {
             text-align: center;
             margin-bottom: 20px;
             font-weight: bold;
@@ -35,45 +42,79 @@
             font-family: "Poppins", sans-serif;
 
         }
-        input{
-            margin: 20px 20px 0px 20px;
+
+        .data {
+            margin: 20px 20px 20px 20px;
             padding: 10px 10px;
             width: 300px;
             border-radius: 10px;
-            border: 2px solid  rgb(89, 125, 125);
+            border: 2px solid rgb(89, 125, 125);
         }
-        .input{
+
+        .input {
             margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-        button{
+
+        button {
             padding: 5px 30px;
-            margin: 10px 10px 10px 135px;
+            margin: 0px 10px 0px 35px;
             align-items: center;
-            border-radius: 10px; 
+            border-radius: 10px;
             color: whitesmoke;
-            background-color: transparent; 
-            border: 2px solid  rgb(89, 125, 125);
+            background-color: transparent;
+            border: 2px solid rgb(89, 125, 125);
         }
-        .forget{
+
+        .forget {
             text-align: center;
             font-family: "Poppins", sans-serif;
             font-size: small;
             color: whitesmoke;
         }
-        button:hover{
+
+        button:hover {
             color: whitesmoke;
-            cursor: pointer; 
-            background-color:rgb(89, 202, 89);
+            cursor: pointer;
+            background-color: rgb(89, 202, 89);
+        }
+
+        .re {
+            color: whitesmoke;
+            margin: 0;padding: 0;
+        }
+        .log{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .checkbox{
+            margin-left: 5px;
+        }
+        .checkbox:hover{
+            cursor: pointer;
         }
     </style>
 </head>
+
 <body>
     <div class="box">
-        <div><p>log In</p></div>
-        <div class="input"><div><input type="email" name="email" id="" placeholder="Enter your Email"></div>
-        <div><input type="password" name="password" id="" placeholder="password"></div></div>
-        <div><button>Log In</button></div>
+        <div class="p">
+            <p>log In</p>
+        </div>
+        <div class="input">
+            <div><input class="data" type="email" name="email" id="" placeholder="Enter your Email"></div>
+            <div><input class="data" type="password" name="password" id="" placeholder="password"></div>
+        </div>
+        <div class="log">
+            <p class="re">Remember me<input  class="checkbox" type="checkbox" name="checkbox" id="" placeholder=""></p><button>Log
+                In</button>
+        </div>
         <div class="forget">Don't have a account?<a href="">Sign Up</a></div>
     </div>
 </body>
+
 </html>
