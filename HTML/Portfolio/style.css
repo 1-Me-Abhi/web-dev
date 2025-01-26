@@ -1,9 +1,10 @@
 body {
     margin: 0;
     padding: 0;
+    
 }
 
-nav {
+.nav {
     display: flex;
     justify-content: space-around;
     padding-top: 10px;
@@ -26,39 +27,41 @@ a {
     font-size: 1.6rem;
     font-weight: 500;
     color: whitesmoke;
+    padding-top: 0;
 }
 
 .Role {
+    height: 55vh;
+    width: 100%;
+    background-image: url(BG.png);
+    background-repeat: inherit;
+    margin-top: -23px;
+    padding: 0;
+    
+
+}
+.title{
+    backdrop-filter: blur(10px);
+    height: 55vh;
+    
+    
+}
+.bold{
     display: flex;
     flex-direction: column;
-    padding-top: 3rem;
     align-items: center;
-
-    height: inherit;
-    padding-bottom: 2rem;
+    width: 100%;
     font-family: sans-serif;
     font-weight: bolder;
     font-size: 1.4rem;
-    background-image: url(BG.png);
-    background-position:25% 75%;
-    filter: blur(5px);
-    
-    
-    
+    padding-top: 23px;
 }
-.summary {
+.Summary{
+    padding: 2rem;
     font-family: sans-serif;
-    font-weight:100;
-    margin-top:1rem;
-    margin-left:15rem;
-    margin-right:15rem;
-    overflow:hidden;
-    background-color: black;
-
 }
-
 .content {
-    background-color: aqua;
+    
     height: 30vh;
     justify-content: center;
     display: grid;

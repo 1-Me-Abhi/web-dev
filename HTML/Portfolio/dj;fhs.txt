@@ -1,0 +1,6 @@
+ <div class="title text">Frontend Devloper</div>
+        <div class="summary  text">
+
+        </div>
+
+        
