@@ -185,7 +185,7 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
           >
             <motion.img 
-              src="/images/luffy-profile.jpg"
+              src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
               alt="Abhishek Kumar"
               initial={{ scale: 1 }}
               animate={{ 
@@ -198,7 +198,7 @@ const Hero = () => {
               }}
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = "https://via.placeholder.com/280";
+                e.target.src = "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80";
               }}
             />
           </ImageContainer>

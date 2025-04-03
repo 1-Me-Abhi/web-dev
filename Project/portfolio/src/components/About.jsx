@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaCode, FaLaptopCode, FaUserGraduate } from 'react-icons/fa';
 
 const AboutSection = styled.section`
   min-height: 100vh;
@@ -34,38 +33,6 @@ const Content = styled.div`
     line-height: 1.8;
     color: #666;
     margin-bottom: 20px;
-  }
-`;
-
-const ProfileBadge = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 25px;
-`;
-
-const BadgeIcon = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(106, 17, 203, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 15px;
-  color: #6a11cb;
-`;
-
-const BadgeText = styled.div`
-  h4 {
-    font-size: 1.2rem;
-    color: #333;
-    margin: 0 0 5px 0;
-  }
-  
-  p {
-    font-size: 1rem;
-    color: #666;
-    margin: 0;
   }
 `;
 
@@ -104,34 +71,6 @@ const HighlightText = styled.span`
   font-weight: 600;
 `;
 
-const ProfileLinks = styled.div`
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
-`;
-
-const ProfileLink = styled.a`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 15px;
-  background: rgba(106, 17, 203, 0.08);
-  border-radius: 5px;
-  color: #6a11cb;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    background: rgba(106, 17, 203, 0.15);
-    transform: translateY(-3px);
-  }
-  
-  svg {
-    font-size: 1.1rem;
-  }
-`;
-
 const About = () => {
   return (
     <AboutSection id="about">
@@ -145,24 +84,13 @@ const About = () => {
           >
             About Me
           </motion.h2>
-          
-          <ProfileBadge>
-            <BadgeIcon>
-              <FaUserGraduate />
-            </BadgeIcon>
-            <BadgeText>
-              <h4>Abhishek Kumar</h4>
-              <p>Computer Science Student & Full Stack Developer</p>
-            </BadgeText>
-          </ProfileBadge>
-          
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            I am a passionate <HighlightText>Full Stack Developer</HighlightText> and <HighlightText>UI/UX Designer</HighlightText> currently pursuing my Computer Science degree. With a focus on creating beautiful, functional web applications, I combine creative design with technical expertise to build seamless user experiences.
+            I am a passionate <HighlightText>Front-End Developer</HighlightText> and <HighlightText>UI/UX Enthusiast</HighlightText> currently pursuing my Computer Science degree. I enjoy creating beautiful, functional web applications that provide exceptional user experiences through clean code and thoughtful design.
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -170,7 +98,7 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            My journey in web development started with creating simple websites, and has grown into developing complex applications. I'm particularly interested in front-end technologies like React and enjoy building creative interfaces with smooth animations and responsive designs. My GitHub repositories showcase my ability to create modern web applications including a Netflix clone and other web development projects.
+            My journey began with simple HTML and CSS projects and has evolved to include complex JavaScript applications and React-based websites. I'm dedicated to continuous learning and staying updated with the latest web technologies and design trends to create modern, responsive, and accessible digital experiences.
           </motion.p>
           
           <motion.div
@@ -190,38 +118,43 @@ const About = () => {
               </InfoItem>
               <InfoItem>
                 <strong>Role:</strong>
-                <span>Full Stack Developer & UI/UX Designer</span>
+                <span>Front-End Developer & UI Designer</span>
               </InfoItem>
               <InfoItem>
-                <strong>Experience:</strong>
-                <span>Web Development, Frontend Development, UI Design</span>
-              </InfoItem>
-              <InfoItem>
-                <strong>Projects:</strong>
-                <span>Netflix Clone, Web Development Portfolio, UI Components</span>
+                <strong>Location:</strong>
+                <span>India</span>
               </InfoItem>
               <InfoItem>
                 <strong>Interests:</strong>
-                <span>Web Development, UI Design, Problem Solving</span>
+                <span>Web Development, UI Design, Animation, Responsive Design</span>
+              </InfoItem>
+              <InfoItem>
+                <strong>GitHub:</strong>
+                <span>
+                  <a 
+                    href="https://github.com/1-Me-Abhi" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={{ color: '#ff7b9c', textDecoration: 'none' }}
+                  >
+                    github.com/1-Me-Abhi
+                  </a>
+                </span>
+              </InfoItem>
+              <InfoItem>
+                <strong>LinkedIn:</strong>
+                <span>
+                  <a 
+                    href="https://www.linkedin.com/in/1meabhi1/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={{ color: '#ff7b9c', textDecoration: 'none' }}
+                  >
+                    linkedin.com/in/1meabhi1
+                  </a>
+                </span>
               </InfoItem>
             </InfoList>
-            
-            <ProfileLinks>
-              <ProfileLink 
-                href="https://github.com/1-Me-Abhi" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <FaGithub /> GitHub Profile
-              </ProfileLink>
-              <ProfileLink 
-                href="https://www.linkedin.com/in/1meabhi1/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <FaLinkedin /> LinkedIn Profile
-              </ProfileLink>
-            </ProfileLinks>
           </motion.div>
         </Content>
         <ImageContainer
@@ -230,10 +163,14 @@ const About = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <img src="/images/luffy-profile.jpg" alt="Abhishek Kumar" onError={(e) => {
-            e.target.onerror = null;
-            e.target.src = "https://cdn.dribbble.com/users/1162077/screenshots/7475318/media/8837a0ae1265548e27a3e5580f468b86.png";
-          }} />
+          <img 
+            src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+            alt="Abhishek Kumar" 
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80";
+            }} 
+          />
         </ImageContainer>
       </Container>
     </AboutSection>
