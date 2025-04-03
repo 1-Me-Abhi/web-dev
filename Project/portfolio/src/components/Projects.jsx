@@ -17,7 +17,7 @@ const Title = styled(motion.h2)`
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 50px;
-  color: #333;
+  color: #6a11cb;
 `;
 
 const ProjectGrid = styled.div`
@@ -32,9 +32,11 @@ const ProjectCard = styled(motion.div)`
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  border-top: 4px solid #ff7b9c;
 
   &:hover {
     transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(106, 17, 203, 0.2);
   }
 `;
 
@@ -75,11 +77,11 @@ const TechStack = styled.div`
 `;
 
 const TechTag = styled.span`
-  background: #e9ecef;
+  background: rgba(106, 17, 203, 0.1);
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 0.9rem;
-  color: #495057;
+  color: #6a11cb;
 `;
 
 const ProjectLinks = styled.div`
@@ -87,40 +89,40 @@ const ProjectLinks = styled.div`
   gap: 15px;
 
   a {
-    color: #007bff;
+    color: #ff7b9c;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 
     &:hover {
-      color: #0056b3;
+      color: #6a11cb;
     }
   }
 `;
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce platform built with React and Node.js, featuring user authentication, product management, and payment integration.",
-    image: "https://via.placeholder.com/400x200",
-    technologies: ["React", "Node.js", "MongoDB", "Express"],
-    github: "#",
-    live: "#"
+    title: "Netflix Clone",
+    description: "A functional clone of Netflix streaming platform with similar UI and features, demonstrating front-end development skills and responsive design.",
+    image: "https://cdn.dribbble.com/users/3798646/screenshots/14933133/media/bf4513dee26d4826e059c7a2ef4e0944.png",
+    technologies: ["HTML", "CSS", "JavaScript", "React"],
+    github: "https://github.com/1-Me-Abhi/Netflix-Clone",
+    live: "https://github.com/1-Me-Abhi/Netflix-Clone"
   },
   {
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates and team collaboration features.",
-    image: "https://via.placeholder.com/400x200",
-    technologies: ["React", "Firebase", "Material-UI"],
-    github: "#",
-    live: "#"
+    title: "Web Development",
+    description: "A collection of web development projects and exercises, showcasing HTML, CSS and JavaScript implementations for various web applications.",
+    image: "https://cdn.dribbble.com/users/1626229/screenshots/14543231/media/5f305371e822b77376b76aaf1e3adbb5.jpg",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/1-Me-Abhi/web-dev",
+    live: "https://github.com/1-Me-Abhi/web-dev"
   },
   {
     title: "Portfolio Website",
-    description: "A modern portfolio website built with React and styled-components, featuring smooth animations and responsive design.",
-    image: "https://via.placeholder.com/400x200",
-    technologies: ["React", "Styled Components", "Framer Motion"],
-    github: "#",
+    description: "This modern portfolio website built with React and styled with Emotion, featuring smooth animations and responsive design with Framer Motion.",
+    image: "https://cdn.dribbble.com/users/702789/screenshots/16900669/media/21a9e81982de2dd126e6f97c5c3738e3.png",
+    technologies: ["React", "Emotion", "Framer Motion"],
+    github: "https://github.com/1-Me-Abhi/1-Me-Abhi",
     live: "#"
   }
 ];
