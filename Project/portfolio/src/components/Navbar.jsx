@@ -7,7 +7,7 @@ const Nav = styled.nav`
   top: 0;
   width: 100%;
   height: 70px;
-  background: rgba(10, 25, 47, 0.95);
+  background: rgba(106, 17, 203, 0.95);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,7 +19,7 @@ const Nav = styled.nav`
 const Logo = styled.div`
   font-size: 24px;
   font-weight: bold;
-  color: #e6f1ff;
+  color: #ffffff;
 `;
 
 const NavLinks = styled.div`
@@ -29,12 +29,12 @@ const NavLinks = styled.div`
 
 const NavLink = styled(Link)`
   cursor: pointer;
-  color: #8892b0;
+  color: #e0e0ff;
   font-weight: 500;
   transition: color 0.3s ease;
 
   &:hover {
-    color: #64ffda;
+    color: #ff7b9c;
   }
 `;
 

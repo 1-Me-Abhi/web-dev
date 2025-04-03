@@ -1,104 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
-import { FaApple, FaCode, FaLayerGroup, FaTerminal } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const HeroSection = styled.section`
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
   padding: 0 20px;
   position: relative;
   overflow: hidden;
 `;
 
-// macOS-inspired floating dock
-const MacOSDock = styled(motion.div)`
-  position: absolute;
-  bottom: 20px;
-  display: flex;
-  gap: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 12px 20px;
-  border-radius: 18px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-  z-index: 10;
-  /* Fix for backdrop-filter not working in some browsers */
-  @supports (backdrop-filter: blur(10px)) {
-    backdrop-filter: blur(10px);
-  }
-  @supports not (backdrop-filter: blur(10px)) {
-    background: rgba(255, 255, 255, 0.25);
-  }
-`;
-
-const DockIcon = styled(motion.div)`
-  width: 50px;
-  height: 50px;
-  background: ${props => props.bg || '#1e88e5'};
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  color: white;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-`;
-
-// macOS window component
-const MacWindow = styled(motion.div)`
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+const Container = styled.div`
+  max-width: 1200px;
   width: 100%;
-  max-width: 1000px;
-  /* Fix for backdrop-filter not working in some browsers */
-  @supports (backdrop-filter: blur(10px)) {
-    backdrop-filter: blur(10px);
-  }
-  @supports not (backdrop-filter: blur(10px)) {
-    background: rgba(255, 255, 255, 0.15);
-  }
-`;
-
-const MacWindowHeader = styled.div`
-  background: rgba(58, 58, 60, 0.8);
-  padding: 10px 15px;
-  display: flex;
-  align-items: center;
-`;
-
-const WindowControls = styled.div`
-  display: flex;
-  gap: 8px;
-`;
-
-const WindowButton = styled.div`
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: ${props => props.color};
-  cursor: pointer;
-`;
-
-const WindowTitle = styled.div`
-  color: #e6f1ff;
-  font-size: 14px;
-  flex: 1;
-  text-align: center;
-  font-weight: 500;
-`;
-
-const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px;
-  width: 100%;
 `;
 
 const ContentWrapper = styled.div`
@@ -107,7 +28,7 @@ const ContentWrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   gap: 40px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   
   @media (max-width: 768px) {
     flex-direction: column-reverse;
@@ -125,13 +46,12 @@ const TextContent = styled.div`
 `;
 
 const ImageContainer = styled(motion.div)`
-  width: 220px;
-  height: 220px;
+  width: 280px;
+  height: 280px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid #64ffda;
-  box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
-  position: relative;
+  border: 4px solid #ff7b9c;
+  box-shadow: 0 0 30px rgba(255, 123, 156, 0.4);
   
   img {
     width: 100%;
@@ -140,19 +60,10 @@ const ImageContainer = styled(motion.div)`
   }
 `;
 
-const FloatingAnimation = styled(motion.div)`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 const Title = styled(motion.h1)`
   font-size: 4.5rem;
   margin-bottom: 20px;
-  color: #e6f1ff;
+  color: #ffffff;
   font-weight: 700;
   
   @media (max-width: 768px) {
@@ -162,196 +73,148 @@ const Title = styled(motion.h1)`
 
 const Subtitle = styled(motion.p)`
   font-size: 1.5rem;
-  color: #8892b0;
+  color: #e0e0ff;
   margin-bottom: 30px;
 `;
 
-// macOS-styled button
-const MacButton = styled(motion.button)`
-  padding: 12px 24px;
+const ActionButton = styled(motion.button)`
+  padding: 15px 35px;
   font-size: 1.1rem;
-  color: white;
-  background: linear-gradient(to bottom, #5a74e4, #4254b5);
+  background: #ff7b9c;
+  color: #ffffff;
   border: none;
-  border-radius: 8px;
-  font-weight: 500;
-  box-shadow: 0 2px 10px rgba(66, 84, 181, 0.5);
+  border-radius: 50px;
+  font-weight: 600;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  margin-bottom: 50px;
   transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 123, 156, 0.4);
 
   &:hover {
-    background: linear-gradient(to bottom, #6583f7, #4e62cc);
-    transform: translateY(-2px);
+    background: #ff5c85;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 123, 156, 0.6);
   }
 `;
 
-// Notification badge
-const NotificationBadge = styled(motion.div)`
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 12px 20px;
-  border-radius: 10px;
-  color: #e6f1ff;
-  font-size: 14px;
+const SocialLinks = styled.div`
   display: flex;
-  align-items: center;
-  gap: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  /* Fix for backdrop-filter not working in some browsers */
-  @supports (backdrop-filter: blur(10px)) {
-    backdrop-filter: blur(10px);
-  }
-  @supports not (backdrop-filter: blur(10px)) {
-    background: rgba(255, 255, 255, 0.25);
+  gap: 20px;
+  margin-top: 30px;
+`;
+
+const SocialLink = styled.a`
+  color: #ffffff;
+  font-size: 1.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    color: #ff7b9c;
+    transform: translateY(-3px);
   }
 `;
 
 const Hero = () => {
-  const [isMinimized, setIsMinimized] = useState(false);
-
-  // Ensure the correct image path
-  const imagePath = "/images/luffy-profile.jpg";
-  
-  // Add click handlers for dock icons
-  const handleDockIconClick = (icon) => {
-    console.log(`Clicked on ${icon} icon`);
-    // You can add specific functionality for each icon here
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
     <HeroSection id="home">
-      {/* macOS-style notification */}
-      <NotificationBadge
-        initial={{ x: 100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 1, duration: 0.6 }}
-      >
-        <FaApple /> Welcome to my portfolio
-      </NotificationBadge>
-
-      <MacWindow
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ 
-          opacity: 1, 
-          y: isMinimized ? 300 : 0,
-          scale: isMinimized ? 0.6 : 1
-        }}
-        transition={{ duration: 0.6 }}
-      >
-        <MacWindowHeader>
-          <WindowControls>
-            <WindowButton 
-              color="#ff5f56" 
-              onClick={() => setIsMinimized(!isMinimized)}
-            />
-            <WindowButton color="#ffbd2e" />
-            <WindowButton color="#27c93f" />
-          </WindowControls>
-          <WindowTitle>Abhishek Kumar ~ Portfolio</WindowTitle>
-          <div style={{ width: 36 }}></div>
-        </MacWindowHeader>
-
-        <HeroContent>
-          <ContentWrapper>
-            <TextContent>
-              <Title
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                Hi, I'm <span style={{ color: '#64ffda' }}>Abhishek Kumar</span>
-              </Title>
-              <Subtitle
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                Full Stack Developer | UI/UX Designer | Problem Solver
-              </Subtitle>
-            </TextContent>
+      <Container>
+        <ContentWrapper>
+          <TextContent>
+            <Title
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              Hi, I'm <span style={{ color: '#ff7b9c' }}>Abhishek Kumar</span>
+            </Title>
+            <Subtitle
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Full Stack Developer | UI/UX Designer | Problem Solver
+            </Subtitle>
             
-            <ImageContainer>
-              <FloatingAnimation
-                animate={{ 
-                  y: [0, -10, 0],
-                  rotateZ: [-2, 2, -2]
-                }}
-                transition={{ 
-                  duration: 4, 
-                  repeat: Infinity,
-                  ease: "easeInOut" 
-                }}
+            <SocialLinks>
+              <SocialLink 
+                href="https://github.com/1-Me-Abhi" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                as={motion.a}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
               >
-                {/* Fallback in case image fails to load */}
-                <img 
-                  src={imagePath}
-                  alt="Abhishek Kumar" 
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = "https://via.placeholder.com/220";
-                  }}
-                />
-              </FloatingAnimation>
-            </ImageContainer>
-          </ContentWrapper>
+                <FaGithub />
+              </SocialLink>
+              <SocialLink 
+                href="https://www.linkedin.com/in/1meabhi1/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                as={motion.a}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                <FaLinkedin />
+              </SocialLink>
+              <SocialLink 
+                href="https://twitter.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                as={motion.a}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                <FaTwitter />
+              </SocialLink>
+            </SocialLinks>
+          </TextContent>
           
-          <MacButton
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
+          <ImageContainer
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
           >
-            <FaTerminal /> View My Work
-          </MacButton>
-        </HeroContent>
-      </MacWindow>
-
-      {/* macOS Dock */}
-      <MacOSDock
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, duration: 0.6 }}
-      >
-        <DockIcon 
-          bg="#5a74e4" 
-          whileHover={{ scale: 1.15, y: -10 }}
+            <motion.img 
+              src="/images/luffy-profile.jpg"
+              alt="Abhishek Kumar"
+              initial={{ scale: 1 }}
+              animate={{ 
+                scale: [1, 1.05, 1],
+              }}
+              transition={{ 
+                duration: 3, 
+                repeat: Infinity,
+                ease: "easeInOut" 
+              }}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = "https://via.placeholder.com/280";
+              }}
+            />
+          </ImageContainer>
+        </ContentWrapper>
+        
+        <ActionButton
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => handleDockIconClick('Apple')}
+          onClick={() => scrollToSection('projects')}
         >
-          <FaApple />
-        </DockIcon>
-        <DockIcon 
-          bg="#27ae60" 
-          whileHover={{ scale: 1.15, y: -10 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
-        >
-          <FaCode />
-        </DockIcon>
-        <DockIcon 
-          bg="#e74c3c" 
-          whileHover={{ scale: 1.15, y: -10 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => document.getElementById('skills').scrollIntoView({ behavior: 'smooth' })}
-        >
-          <FaLayerGroup />
-        </DockIcon>
-        <DockIcon 
-          bg="#f39c12" 
-          whileHover={{ scale: 1.15, y: -10 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
-        >
-          <FaTerminal />
-        </DockIcon>
-      </MacOSDock>
+          View My Work
+        </ActionButton>
+      </Container>
     </HeroSection>
   );
 };

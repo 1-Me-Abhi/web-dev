@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaUserGraduate } from 'react-icons/fa';
 
 const ContactSection = styled.section`
   min-height: 100vh;
   padding: 100px 20px;
-  background: #f8f9fa;
+  background: #fff;
 `;
 
 const Container = styled.div`
@@ -26,7 +26,7 @@ const ContactInfo = styled.div`
   h2 {
     font-size: 2.5rem;
     margin-bottom: 30px;
-    color: #333;
+    color: #6a11cb;
   }
 
   p {
@@ -44,20 +44,67 @@ const SocialLinks = styled.div`
 `;
 
 const SocialLink = styled.a`
-  color: #333;
+  color: #6a11cb;
   font-size: 1.5rem;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 
   &:hover {
-    color: #007bff;
+    color: #ff7b9c;
+    transform: translateY(-3px);
+  }
+`;
+
+const ContactMethods = styled.div`
+  margin-top: 30px;
+`;
+
+const ContactMethod = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+`;
+
+const IconContainer = styled.div`
+  width: 40px;
+  height: 40px;
+  background: rgba(106, 17, 203, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: #6a11cb;
+`;
+
+const ContactDetail = styled.div`
+  h4 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+  }
+  
+  a {
+    color: #ff7b9c;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 
 const ContactForm = styled.form`
-  background: white;
+  background: #f9f9ff;
   padding: 40px;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #ff7b9c;
 `;
 
 const FormGroup = styled.div`
@@ -81,7 +128,7 @@ const FormGroup = styled.div`
 
     &:focus {
       outline: none;
-      border-color: #007bff;
+      border-color: #6a11cb;
     }
   }
 
@@ -92,17 +139,18 @@ const FormGroup = styled.div`
 `;
 
 const SubmitButton = styled(motion.button)`
-  background: #007bff;
+  background: #6a11cb;
   color: white;
   padding: 12px 30px;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
 
   &:hover {
-    background: #0056b3;
+    background: #ff7b9c;
   }
 `;
 
@@ -125,6 +173,13 @@ const Contact = () => {
     e.preventDefault();
     // Handle form submission here
     console.log('Form submitted:', formData);
+    // In a real application, you would send this data to a server
+    alert('Thank you for your message! I will get back to you soon.');
+    setFormData({
+      name: '',
+      email: '',
+      message: ''
+    });
   };
 
   return (
@@ -145,16 +200,78 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+            I'm always interested in discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out through any of the following methods.
           </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <ContactMethods>
+              <ContactMethod>
+                <IconContainer>
+                  <FaGithub />
+                </IconContainer>
+                <ContactDetail>
+                  <h4>GitHub</h4>
+                  <p>
+                    <a href="https://github.com/1-Me-Abhi" target="_blank" rel="noopener noreferrer">
+                      github.com/1-Me-Abhi
+                    </a>
+                  </p>
+                </ContactDetail>
+              </ContactMethod>
+              
+              <ContactMethod>
+                <IconContainer>
+                  <FaEnvelope />
+                </IconContainer>
+                <ContactDetail>
+                  <h4>Email</h4>
+                  <p>
+                    <a href="mailto:contact@example.com">
+                      contact@example.com
+                    </a>
+                  </p>
+                </ContactDetail>
+              </ContactMethod>
+              
+              <ContactMethod>
+                <IconContainer>
+                  <FaUserGraduate />
+                </IconContainer>
+                <ContactDetail>
+                  <h4>Student Status</h4>
+                  <p>Computer Science Student</p>
+                </ContactDetail>
+              </ContactMethod>
+
+              <ContactMethod>
+                <IconContainer>
+                  <FaLinkedin />
+                </IconContainer>
+                <ContactDetail>
+                  <h4>LinkedIn</h4>
+                  <p>
+                    <a href="https://www.linkedin.com/in/1meabhi1/" target="_blank" rel="noopener noreferrer">
+                      linkedin.com/in/1meabhi1
+                    </a>
+                  </p>
+                </ContactDetail>
+              </ContactMethod>
+            </ContactMethods>
+          </motion.div>
+          
           <SocialLinks>
-            <SocialLink href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <SocialLink href="https://github.com/1-Me-Abhi" target="_blank" rel="noopener noreferrer">
               <FaGithub />
             </SocialLink>
-            <SocialLink href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <SocialLink href="https://www.linkedin.com/in/1meabhi1/" target="_blank" rel="noopener noreferrer">
               <FaLinkedin />
             </SocialLink>
-            <SocialLink href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            <SocialLink href="#" target="_blank" rel="noopener noreferrer">
               <FaTwitter />
             </SocialLink>
           </SocialLinks>

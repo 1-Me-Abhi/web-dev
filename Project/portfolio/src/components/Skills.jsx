@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
-import { FaReact, FaNodeJs, FaDatabase, FaGitAlt, FaDocker } from 'react-icons/fa';
-import { SiJavascript, SiTypescript, SiMongodb, SiExpress, SiTailwindcss } from 'react-icons/si';
+import { FaReact, FaHtml5, FaCss3Alt, FaGitAlt, FaFigma } from 'react-icons/fa';
+import { SiJavascript, SiFirebase, SiBootstrap, SiTailwindcss, SiFramer } from 'react-icons/si';
 
 const SkillsSection = styled.section`
   min-height: 100vh;
   padding: 100px 20px;
-  background: #fff;
+  background: #f9f9ff;
 `;
 
 const Container = styled.div`
@@ -19,7 +19,7 @@ const Title = styled(motion.h2)`
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 50px;
-  color: #333;
+  color: #6a11cb;
 `;
 
 const SkillsGrid = styled.div`
@@ -29,21 +29,24 @@ const SkillsGrid = styled.div`
 `;
 
 const SkillCard = styled(motion.div)`
-  background: #f8f9fa;
+  background: #fff;
   padding: 30px;
   border-radius: 10px;
   text-align: center;
   transition: transform 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border-bottom: 4px solid #ff7b9c;
 
   &:hover {
     transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(106, 17, 203, 0.1);
   }
 `;
 
 const IconWrapper = styled.div`
   font-size: 3rem;
   margin-bottom: 20px;
-  color: #007bff;
+  color: #6a11cb;
 `;
 
 const SkillTitle = styled.h3`
@@ -61,26 +64,26 @@ const skills = [
   {
     title: "Frontend Development",
     icon: <FaReact />,
-    description: "Expert in React.js, JavaScript, TypeScript, and modern frontend frameworks.",
-    technologies: ["React", "JavaScript", "TypeScript", "Tailwind CSS"]
+    description: "Skilled in building responsive and interactive user interfaces with modern frontend technologies.",
+    technologies: ["React", "HTML5", "CSS3", "JavaScript"]
   },
   {
-    title: "Backend Development",
-    icon: <FaNodeJs />,
-    description: "Proficient in Node.js, Express.js, and building scalable server-side applications.",
-    technologies: ["Node.js", "Express", "REST APIs", "GraphQL"]
+    title: "UI/UX Design",
+    icon: <FaFigma />,
+    description: "Passionate about creating intuitive, beautiful user interfaces and experiences with attention to detail.",
+    technologies: ["Figma", "UI Design", "Responsive Design", "Animation"]
   },
   {
-    title: "Database Management",
-    icon: <FaDatabase />,
-    description: "Experience with various databases including MongoDB, SQL, and database optimization.",
-    technologies: ["MongoDB", "SQL", "Redis", "PostgreSQL"]
+    title: "Web Technologies",
+    icon: <SiJavascript />,
+    description: "Experience with various web development frameworks and libraries for creating dynamic applications.",
+    technologies: ["Bootstrap", "Tailwind CSS", "Framer Motion", "Firebase"]
   },
   {
-    title: "DevOps & Tools",
+    title: "Development Tools",
     icon: <FaGitAlt />,
-    description: "Familiar with version control, CI/CD, and modern development tools.",
-    technologies: ["Git", "Docker", "AWS", "Jenkins"]
+    description: "Proficient with development tools and workflows to efficiently create and deploy web applications.",
+    technologies: ["Git", "GitHub", "VS Code", "Responsive Testing"]
   }
 ];
 
@@ -113,11 +116,11 @@ const Skills = () => {
                   <span
                     key={i}
                     style={{
-                      background: '#e9ecef',
+                      background: 'rgba(106, 17, 203, 0.1)',
                       padding: '4px 8px',
                       borderRadius: '4px',
                       fontSize: '0.9rem',
-                      color: '#495057'
+                      color: '#6a11cb'
                     }}
                   >
                     {tech}
