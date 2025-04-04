@@ -1,13 +1,23 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { motion } from 'framer-motion';
-import { FaReact, FaHtml5, FaCss3Alt, FaGitAlt, FaFigma } from 'react-icons/fa';
-import { SiJavascript, SiFirebase, SiBootstrap, SiTailwindcss, SiFramer } from 'react-icons/si';
+import { 
+  FaHtml5, FaCss3Alt, FaReact, FaNodeJs, 
+  FaGitAlt, FaDatabase, FaFigma, FaMobileAlt 
+} from 'react-icons/fa';
+import { SiJavascript, SiNextdotjs, SiMongodb, SiTailwindcss } from 'react-icons/si';
 
 const SkillsSection = styled.section`
   min-height: 100vh;
-  padding: 100px 20px;
-  background: #f9f9ff;
+  padding: 100px 50px;
+  background-color: #0c0513;
+  
+  @media (max-width: 768px) {
+    padding: 80px 30px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 60px 20px;
+  }
 `;
 
 const Container = styled.div`
@@ -15,121 +25,224 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 
-const Title = styled(motion.h2)`
-  text-align: center;
+const Title = styled.h2`
   font-size: 2.5rem;
-  margin-bottom: 50px;
-  color: #6a11cb;
-`;
-
-const SkillsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-`;
-
-const SkillCard = styled(motion.div)`
-  background: #fff;
-  padding: 30px;
-  border-radius: 10px;
+  color: #ffffff;
   text-align: center;
-  transition: transform 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  border-bottom: 4px solid #ff7b9c;
+  margin-bottom: 60px;
+  
+  @media (max-width: 768px) {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+`;
 
+const SkillsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+`;
+
+const SkillCard = styled.div`
+  background: rgba(13, 6, 32, 0.7);
+  border-radius: 12px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(106, 17, 203, 0.2);
+  
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(106, 17, 203, 0.1);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(106, 17, 203, 0.3);
+  }
+  
+  @media (max-width: 480px) {
+    padding: 25px;
   }
 `;
 
 const IconWrapper = styled.div`
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 20px;
-  color: #6a11cb;
+  color: ${props => props.color || '#6a11cb'};
+  
+  @media (max-width: 768px) {
+    font-size: 3rem;
+  }
 `;
 
-const SkillTitle = styled.h3`
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: #333;
+const SkillName = styled.h3`
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+  text-align: center;
+  
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const SkillDescription = styled.p`
-  color: #666;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #e0e0ff;
+  text-align: center;
+  line-height: 1.5;
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 `;
 
-const skills = [
-  {
-    title: "Frontend Development",
-    icon: <FaReact />,
-    description: "I specialize in building responsive, interactive, and visually appealing user interfaces with modern frontend technologies.",
-    technologies: ["React", "HTML5", "CSS3", "JavaScript"]
-  },
-  {
-    title: "CSS & Design Systems",
-    icon: <FaCss3Alt />,
-    description: "Proficient in creating beautiful UIs with advanced CSS techniques, animations, and responsive designs for all screen sizes.",
-    technologies: ["CSS3", "Flexbox", "Grid", "Animations", "Responsive Design"]
-  },
-  {
-    title: "UI Frameworks & Libraries",
-    icon: <SiBootstrap />,
-    description: "Experience with various CSS frameworks and animation libraries to create efficient and visually stunning web applications.",
-    technologies: ["Bootstrap", "Tailwind CSS", "Framer Motion", "Emotion"]
-  },
-  {
-    title: "Development Tools",
-    icon: <FaGitAlt />,
-    description: "Skilled with modern development workflows, version control, and design tools to efficiently build and deploy websites.",
-    technologies: ["Git", "GitHub", "Figma", "VS Code", "Responsive Testing"]
+const CategoryTitle = styled.h3`
+  font-size: 1.6rem;
+  color: #ff7b9c;
+  margin: 50px 0 30px;
+  text-align: center;
+  grid-column: 1 / -1;
+  
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+    margin: 40px 0 25px;
   }
-];
+`;
 
 const Skills = () => {
+  const frontendSkills = [
+    {
+      name: "HTML5",
+      icon: <FaHtml5 />,
+      description: "Semantic markup, accessibility, and modern HTML features",
+      color: "#E44D26"
+    },
+    {
+      name: "CSS3",
+      icon: <FaCss3Alt />,
+      description: "Advanced styling, animations, and responsive design",
+      color: "#264DE4"
+    },
+    {
+      name: "JavaScript",
+      icon: <SiJavascript />,
+      description: "ES6+, DOM manipulation, and async programming",
+      color: "#F7DF1E"
+    },
+    {
+      name: "React",
+      icon: <FaReact />,
+      description: "Component-based architecture and state management",
+      color: "#61DAFB"
+    }
+  ];
+
+  const backendSkills = [
+    {
+      name: "Node.js",
+      icon: <FaNodeJs />,
+      description: "Server-side JavaScript, RESTful APIs, and Express",
+      color: "#339933"
+    },
+    {
+      name: "MongoDB",
+      icon: <SiMongodb />,
+      description: "NoSQL database design and Mongoose ODM",
+      color: "#47A248"
+    },
+    {
+      name: "Next.js",
+      icon: <SiNextdotjs />,
+      description: "Server-side rendering and static site generation",
+      color: "#ffffff"
+    },
+    {
+      name: "Git & GitHub",
+      icon: <FaGitAlt />,
+      description: "Version control, branching strategies, and collaboration",
+      color: "#F05032"
+    }
+  ];
+
+  const otherSkills = [
+    {
+      name: "Tailwind CSS",
+      icon: <SiTailwindcss />,
+      description: "Utility-first CSS framework for rapid UI development",
+      color: "#06B6D4"
+    },
+    {
+      name: "UI/UX Design",
+      icon: <FaFigma />,
+      description: "User-centered design principles and prototyping",
+      color: "#F24E1E"
+    },
+    {
+      name: "Responsive Design",
+      icon: <FaMobileAlt />,
+      description: "Mobile-first approach and cross-device compatibility",
+      color: "#FF7B9C"
+    },
+    {
+      name: "Database Design",
+      icon: <FaDatabase />,
+      description: "Schema design, relationships, and optimization",
+      color: "#2575FC"
+    }
+  ];
+
   return (
     <SkillsSection id="skills">
       <Container>
-        <Title
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          Skills & Expertise
-        </Title>
-        <SkillsGrid>
-          {skills.map((skill, index) => (
-            <SkillCard
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
-            >
-              <IconWrapper>{skill.icon}</IconWrapper>
-              <SkillTitle>{skill.title}</SkillTitle>
+        <Title>My Skills</Title>
+        
+        <SkillsContainer>
+          <CategoryTitle>Front-End Development</CategoryTitle>
+          {frontendSkills.map((skill, index) => (
+            <SkillCard key={`frontend-${index}`}>
+              <IconWrapper color={skill.color}>{skill.icon}</IconWrapper>
+              <SkillName>{skill.name}</SkillName>
               <SkillDescription>{skill.description}</SkillDescription>
-              <div style={{ marginTop: '15px', display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'center' }}>
-                {skill.technologies.map((tech, i) => (
-                  <span
-                    key={i}
-                    style={{
-                      background: 'rgba(106, 17, 203, 0.1)',
-                      padding: '4px 8px',
-                      borderRadius: '4px',
-                      fontSize: '0.9rem',
-                      color: '#6a11cb'
-                    }}
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
             </SkillCard>
           ))}
-        </SkillsGrid>
+          
+          <CategoryTitle>Back-End Development</CategoryTitle>
+          {backendSkills.map((skill, index) => (
+            <SkillCard key={`backend-${index}`}>
+              <IconWrapper color={skill.color}>{skill.icon}</IconWrapper>
+              <SkillName>{skill.name}</SkillName>
+              <SkillDescription>{skill.description}</SkillDescription>
+            </SkillCard>
+          ))}
+          
+          <CategoryTitle>Other Skills</CategoryTitle>
+          {otherSkills.map((skill, index) => (
+            <SkillCard key={`other-${index}`}>
+              <IconWrapper color={skill.color}>{skill.icon}</IconWrapper>
+              <SkillName>{skill.name}</SkillName>
+              <SkillDescription>{skill.description}</SkillDescription>
+            </SkillCard>
+          ))}
+        </SkillsContainer>
       </Container>
     </SkillsSection>
   );

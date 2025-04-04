@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const HeroSection = styled.section`
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,6 +12,10 @@ const HeroSection = styled.section`
   padding: 0 20px;
   position: relative;
   overflow: hidden;
+  
+  @media (max-width: 480px) {
+    padding: 0 15px;
+  }
 `;
 
 const Container = styled.div`
@@ -20,6 +24,15 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 100px 0;
+  
+  @media (max-width: 768px) {
+    padding: 80px 0;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 60px 0;
+  }
 `;
 
 const ContentWrapper = styled.div`
@@ -33,6 +46,12 @@ const ContentWrapper = styled.div`
   @media (max-width: 768px) {
     flex-direction: column-reverse;
     text-align: center;
+    gap: 30px;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 25px;
+    margin-bottom: 30px;
   }
 `;
 
@@ -42,6 +61,8 @@ const TextContent = styled.div`
   
   @media (max-width: 768px) {
     text-align: center;
+    max-width: 100%;
+    width: 100%;
   }
 `;
 
@@ -52,6 +73,16 @@ const ImageContainer = styled(motion.div)`
   overflow: hidden;
   border: 4px solid #ff7b9c;
   box-shadow: 0 0 30px rgba(255, 123, 156, 0.4);
+  
+  @media (max-width: 768px) {
+    width: 240px;
+    height: 240px;
+  }
+  
+  @media (max-width: 480px) {
+    width: 200px;
+    height: 200px;
+  }
   
   img {
     width: 100%;
@@ -65,9 +96,15 @@ const Title = styled(motion.h1)`
   margin-bottom: 20px;
   color: #ffffff;
   font-weight: 700;
+  line-height: 1.2;
   
   @media (max-width: 768px) {
     font-size: 3.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
   }
 `;
 
@@ -75,6 +112,15 @@ const Subtitle = styled(motion.p)`
   font-size: 1.5rem;
   color: #e0e0ff;
   margin-bottom: 30px;
+  
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
 `;
 
 const ActionButton = styled(motion.button)`
@@ -90,6 +136,18 @@ const ActionButton = styled(motion.button)`
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px rgba(255, 123, 156, 0.4);
 
+  @media (max-width: 768px) {
+    padding: 12px 30px;
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+  }
+
   &:hover {
     background: #ff5c85;
     transform: translateY(-3px);
@@ -101,12 +159,22 @@ const SocialLinks = styled.div`
   display: flex;
   gap: 20px;
   margin-top: 30px;
+  
+  @media (max-width: 480px) {
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+  }
 `;
 
 const SocialLink = styled.a`
   color: #ffffff;
   font-size: 1.5rem;
   transition: color 0.3s ease, transform 0.3s ease;
+  
+  @media (max-width: 480px) {
+    font-size: 1.3rem;
+  }
 
   &:hover {
     color: #ff7b9c;
