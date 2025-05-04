@@ -1,0 +1,134 @@
+:root {
+  /* Light theme (default) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f4f6;
+  --bg-accent: #3b82f6;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-accent: #3b82f6;
+  --border-color: #e5e7eb;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --card-bg: #ffffff;
+  --nav-bg: #ffffff;
+  --footer-bg: #1f2937;
+  --footer-text: #ffffff;
+  --button-primary-bg: #3b82f6;
+  --button-primary-text: #ffffff;
+  --button-secondary-bg: #ffffff;
+  --button-secondary-text: #3b82f6;
+  --input-bg: #ffffff;
+  --input-text: #111827;
+  --filter-bg: #f3f4f6;
+  --tag-bg: #f3f4f6;
+  --tag-text: #4b5563;
+  --disabled-bg: #e5e7eb;
+  --disabled-text: #9ca3af;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #1f2937;
+  --bg-secondary: #111827;
+  --bg-accent: #3b82f6;
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --text-accent: #60a5fa;
+  --border-color: #374151;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --card-bg: #272f3d;
+  --nav-bg: #111827;
+  --footer-bg: #111827;
+  --footer-text: #f9fafb;
+  --button-primary-bg: #3b82f6;
+  --button-primary-text: #ffffff;
+  --button-secondary-bg: #374151;
+  --button-secondary-text: #d1d5db;
+  --input-bg: #374151;
+  --input-text: #f9fafb;
+  --filter-bg: #1f2937;
+  --tag-bg: #374151;
+  --tag-text: #d1d5db;
+  --disabled-bg: #4b5563;
+  --disabled-text: #9ca3af;
+}
+
+/* Apply theme variables to elements */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav {
+  background-color: var(--nav-bg);
+  color: var(--text-primary);
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.filter-section {
+  background-color: var(--filter-bg);
+}
+
+.room-tag {
+  background-color: var(--tag-bg);
+  color: var(--tag-text);
+}
+
+input, select {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border-color: var(--border-color);
+}
+
+/* Primary button */
+.btn-primary {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+}
+
+/* Secondary button */
+.btn-secondary {
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+  border: 1px solid var(--button-secondary-text);
+}
+
+/* Disabled button */
+.btn-disabled {
+  background-color: var(--disabled-bg);
+  color: var(--disabled-text);
+}
+
+/* Theme toggle button - this will be styled separately */
+.theme-toggle {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  z-index: 100;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+} 
