@@ -1,0 +1,59 @@
+/* Modern CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Navbar Styling */
+  .navbar {
+    background-color: transparent;
+    padding: 24px 40px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  .nav-container {
+    max-width: 1200px; /* Constrain width */
+    margin: 0 auto; /* Center container */
+    display: flex;
+    justify-content: center; /* Center the nav links */
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+    /* Removed justify-content: flex-end */
+    padding: 0; /* Remove default padding */
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+    padding: 4px 0;
+    position: relative;
+  }
+  
+  /* Hover effects (optional) */
+  .nav-links li a:hover {
+    color: #0066ff;
+  }
+  
+  .nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0066ff;
+    transition: width 0.3s ease;
+  }
+  
+  .nav-links li a:hover::after {
+    width: 100%;
+  }
