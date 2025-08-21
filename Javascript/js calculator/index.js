@@ -1,13 +1,38 @@
-console.log("this is a Calculator");
-let a=prompt("Enter the first Number :");
-let b=prompt("operator");
-let c=prompt("Enter second number :")
+const display = document.getElementById('display');
+const buttons = document.querySelectorAll('.button');
 
-if (b=='+') {
-    result=(a+c)
-    
-} else if (b=='-'){
-    result=(a-c)
-    
-}
-alert(result)
+let currentInput = '';
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const value = button.textContent;
+
+    if (value === 'C') {
+      // Clear the display
+      currentInput = '';
+      display.textContent = '';
+    } 
+    else if (value === '=') {
+      try {
+        // Replace symbols with JavaScript operators
+        const expression = currentInput
+          .replace(/×/g, '*')
+          .replace(/÷/g, '/')
+          .replace(/−/g, '-');
+
+        // Evaluate result
+        const result = eval(expression);
+        display.textContent = result;
+        currentInput = result.toString();
+      } catch {
+        display.textContent = 'Error';
+        currentInput = '';
+      }
+    } 
+    else {
+      // Append clicked value to input
+      currentInput += value;
+      display.textContent = currentInput;
+    }
+  });
+});
