@@ -44,4 +44,3 @@ let x  = setInterval(function updateTimer() {
     }
 }
 , 1000);
-// anothrer update
