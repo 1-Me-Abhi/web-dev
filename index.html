@@ -11,7 +11,16 @@
 <body>
     <div class="container">
         <h1>Countdown Timer </h1>
-        <div id ="countdown">
+        <label for="date">Date:</label>
+        <input type="date" id="date">
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" step="1"> <!-- step="1" for seconds -->
+
+        <button  id="Set" onclick="convertToTimestamp()">Set countdown</button>
+
+        <p id="output"></p>
+        <div id="countdown">
             <div><span id="days">00</span> days</div>
             <div><span id="hours">00</span> hrs</div>
             <div><span id="minutes">00</span> mins</div>
@@ -24,4 +33,5 @@
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>

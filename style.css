@@ -8,6 +8,7 @@ body {
     margin: 0;
     height: 100vh;
     padding: 1rem;
+    box-sizing: border-box;
 }
 
 .container {
@@ -15,72 +16,137 @@ body {
     max-width: 600px;
     margin: 0 auto;
     background-color: rgb(178, 215, 196);
-    padding: 1rem;
+    padding: 1rem 1.5rem;
     border-radius: 0.6rem;
     text-align: center;
     box-sizing: border-box;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 h1 {
-    font-size: 1.7rem;
-    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
 }
 
 #countdown {
+    display: none;
+    margin-top: 1rem;
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    gap: 0.5rem; /* Space between items if wrapped */
+    flex-wrap: wrap;
+    gap: 0.75rem;
 }
 
 #countdown div {
-    padding: 0.5rem;
     background-color: rgb(107, 190, 149);
     border: 0.2rem solid beige;
     border-radius: 0.6rem;
-    font-size: larger;
-    flex: 1 1 70px; /* Flexible basis with min width */
-    min-width: 70px;
+    font-size: 1.2rem;
+    flex: 1 1 80px;
+    min-width: 80px;
     text-align: center;
+    padding: 0.5rem 0;
+    font-weight: 600;
+    color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 h2 {
-    margin-bottom: 2rem;
-    font-size: 1.2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
 }
 
-/* Progress bar container and bar remain mostly unchanged but widths scale with container */
 #progress-container {
     background: mintcream;
     width: 100%;
-    height: 0.4rem;
+    height: 0.5rem;
     border-radius: 0.7rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
 }
 
 #progress-bar {
     background: rgb(25, 165, 95);
     width: 0%;
-    height: 0.4rem;
-    transition: width 1s ease-in-out;
+    height: 0.5rem;
+    transition: width 0.8s ease-in-out;
     border-radius: 0.7rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-/* Responsive adjustments with media queries */
-@media (max-width: 480px) {
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+
     h1 {
-        font-size: 1.4rem;
-        margin-bottom: 1.5rem;
+        font-size: 1.6rem;
     }
-    #countdown {
-        justify-content: center;
-    }
+
     #countdown div {
-        font-size: medium;
-        flex: 1 1 100%; /* Make each countdown item take full width */
-    }
-    h2 {
         font-size: 1rem;
-        margin-bottom: 1rem;
+        flex: 1 1 60px;
+        min-width: 60px;
     }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    #progress-container {
+        height: 0.4rem;
+    }
+
+    #progress-bar {
+        height: 0.4rem;
+    }
+}
+
+@media (max-width: 400px) {
+    #countdown {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #countdown div {
+        flex: 1 1 100%;
+        min-width: auto;
+        margin-bottom: 0.5rem;
+    }
+}
+button {
+  background-color: rgb(25, 165, 95);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin: 1rem 0;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
+}
+
+button:hover {
+  background-color: rgb(20, 140, 80);
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 12px rgba(0,0,0,0.2);
+}
+
+button:active {
+  background-color: rgb(15, 110, 65);
+  transform: translateY(0);
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.15);
+}
+
+button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }

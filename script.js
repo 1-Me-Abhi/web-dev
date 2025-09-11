@@ -1,46 +1,82 @@
-const endDate = new Date("20 Sept, 2025 23:51:00").getTime();
-const startDate = new Date().getTime();
+let endDate;       // global target date
+let timer;         // store interval ID
+let startDate;     // store starting point
 
+document.getElementById('Set').addEventListener('click', () => {
+  document.getElementById('countdown').style.display = 'flex';
+  convertToTimestamp();
+});
 
-let x  = setInterval(function updateTimer() {
-    const now = new Date().getTime();
+function convertToTimestamp() {
+  const dateInput = document.getElementById("date").value;
+  const timeInput = document.getElementById("time").value;
 
-    const distanceCovered = now - startDate;
-    const distancePending = endDate - now;
+  if (!dateInput || !timeInput) {
+    document.getElementById("output").textContent = "Please enter both date and time.";
+    return;
+  }
 
-    //caculate days, min, hrs, secs
-    //1 day = 24 * 60 * 60 * 1000 ms
-    const oneDayInMillis = (24 * 60 * 60 * 1000);
-    const oneHourInMillis  = (60 * 60 * 1000);
-    const oneMinInMIllis = (60*1000);
-    const oneSecondInMillis = (1000);
+  // Convert date into readable format
+  const dateObj = new Date(dateInput);
+  const day = dateObj.getDate();
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+  const month = monthNames[dateObj.getMonth()];
+  const year = dateObj.getFullYear();
 
-    const days = Math.floor(distancePending / (oneDayInMillis));
+  const formattedDateTime = `${day} ${month}, ${year} ${timeInput}`;
 
-    const hrs = Math.floor((distancePending%(oneDayInMillis) / (oneHourInMillis)));
+  // Set new countdown target
+  endDate = new Date(formattedDateTime).getTime();
+  startDate = new Date().getTime();
 
-    const mins = Math.floor((distancePending%(oneHourInMillis))/(oneMinInMIllis));
+  document.getElementById("output").textContent = `Countdown set to: ${formattedDateTime}`;
 
-    const secs = Math.floor((distancePending%(oneMinInMIllis))/(oneSecondInMillis));
+  // Reset progress bar & countdown numbers
+  document.getElementById("progress-bar").style.width = "0%";
+  document.getElementById("days").innerHTML = "00";
+  document.getElementById("hours").innerHTML = "00";
+  document.getElementById("minutes").innerHTML = "00";
+  document.getElementById("seconds").innerHTML = "00";
 
-    //populate in UI
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hrs;
-    document.getElementById("minutes").innerHTML = mins;
-    document.getElementById("seconds").innerHTML = secs;
-
-    //calculate width percentage for progress bar 
-    const totalDistance = endDate - startDate;
-
-    const percetageDistance  = (distanceCovered/totalDistance)*100;
-
-    //set width for progress bar 
-    document.getElementById("progress-bar").style.width = percetageDistance + "%";
-
-    if(distancePending < 0 ) {
-        clearInterval(x);
-        document.getElementById("countdown").innerHTML = "EXPIRED";
-        document.getElementById("progress-bar").style.width = "100%";
-    }
+  // Clear old interval (if any) and start new
+  if (timer) clearInterval(timer);
+  timer = setInterval(updateTimer, 1000);
 }
-, 1000);
+
+function updateTimer() {
+  if (!endDate) return;
+
+  const now = new Date().getTime();
+  const distanceCovered = now - startDate;
+  const distancePending = endDate - now;
+
+  // Time constants
+  const oneDay = 24 * 60 * 60 * 1000;
+  const oneHour = 60 * 60 * 1000;
+  const oneMinute = 60 * 1000;
+  const oneSecond = 1000;
+
+  // Breakdown into units
+  const days = Math.floor(distancePending / oneDay);
+  const hrs = Math.floor((distancePending % oneDay) / oneHour);
+  const mins = Math.floor((distancePending % oneHour) / oneMinute);
+  const secs = Math.floor((distancePending % oneMinute) / oneSecond);
+
+  // Update UI
+  document.getElementById("days").innerHTML = days >= 0 ? days : "00";
+  document.getElementById("hours").innerHTML = hrs >= 0 ? hrs : "00";
+  document.getElementById("minutes").innerHTML = mins >= 0 ? mins : "00";
+  document.getElementById("seconds").innerHTML = secs >= 0 ? secs : "00";
+
+  // Progress bar
+  const totalDistance = endDate - startDate;
+  const percentageDistance = (distanceCovered / totalDistance) * 100;
+  document.getElementById("progress-bar").style.width = percentageDistance + "%";
+
+  // Expired state
+  if (distancePending < 0) {
+    clearInterval(timer);
+    document.getElementById("countdown").innerHTML = "EXPIRED";
+    document.getElementById("progress-bar").style.width = "100%";
+  }
+}
