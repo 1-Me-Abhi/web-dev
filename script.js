@@ -1,6 +1,6 @@
-let endDate;       // global target date
-let timer;         // store interval ID
-let startDate;     // store starting point
+let endDate;       
+let timer;         
+let startDate;     
 
 document.getElementById('Set').addEventListener('click', () => {
   document.getElementById('countdown').style.display = 'flex';
