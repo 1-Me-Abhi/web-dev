@@ -31,7 +31,7 @@ function convertToTimestamp() {
 
   document.getElementById("output").textContent = `Countdown set to: ${formattedDateTime}`;
 
-  // Reset progress bar & countdown numbers
+  
   document.getElementById("progress-bar").style.width = "0%";
   document.getElementById("days").innerHTML = "00";
   document.getElementById("hours").innerHTML = "00";
