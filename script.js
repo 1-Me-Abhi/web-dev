@@ -38,7 +38,7 @@ function convertToTimestamp() {
   document.getElementById("minutes").innerHTML = "00";
   document.getElementById("seconds").innerHTML = "00";
 
-  // Clear old interval (if any) and start new
+  
   if (timer) clearInterval(timer);
   timer = setInterval(updateTimer, 1000);
 }
