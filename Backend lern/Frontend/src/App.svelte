@@ -1,37 +1,39 @@
 <script>
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
-  import { onMount } from 'svelte';
   import axios from 'axios';
-  let joke = null;
+  let names = [];
 
-  onMount(async () => {
-    const response = await axios.get('/api/jokes');
-    joke = response.data[1].joke;
-  });
+  async function fetchName() {
+    const response = await axios.get('/api/Name');
+    names = response.data;
+  }
 </script>
-<div>say hello to abhi</div>
-{#if joke}
-  <p>Joke: {joke}</p>
-{:else}
-  <p>Loading joke...</p>
+<div class="title"><h1>Name Api</h1></div>
+
+<button on:click={fetchName}>Fetch Name</button>
+
+{#if names.length > 0}
+  <ul>
+    {#each names as name}
+      <li>{name}</li>
+    {/each}
+  </ul>
 {/if}
 
 <style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
+  .title {
+    text-align: center;
   }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
   }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
+  ul {
+    list-style: none;
+    padding: 0;
   }
-  .read-the-docs {
-    color: #888;
+  li {
+    padding: 5px 0;
+    font-size: 18px;
   }
 </style>
